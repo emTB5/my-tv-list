@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="masterPageLesson.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/StyleSheet1.css" rel="stylesheet" />
+       <style>
+      a:link {
+        color: green;
+      }
+
+      a:visited {
+        color: red;
+      }
+    </style>
+</head>
+    <body style="background-image: url('images/wp3160266.jpg');color:white; font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;font-size: 20px;">
+    <form id="form1" runat="server">
+            <center>
+            <table border="0" width="100%">
+                <tr>
+                    <td class="header" colspan="5">
+                        <center>
+                            <h1>MY TV List</h1>
+                                <%
+                                    if (Session["name"]==null)
+                                    {
+                                        Response.Write("please log in");
+                                    }
+                                    else
+                                    {
+                                        Response.Write("Hello: " + Session["name"]);
+                                    }
+                                %>
+                         </center>
+                    </td>
+                 </tr>
+                <tr>
+                    <th><asp:Button ID="btn_logOff" runat="server" Text="log out" OnClick="btn_logOff_Click" /></th>
+                            <th><a href="home.aspx">home</a></th>
+                            <th><a href="login.aspx">login</a></th>
+                            <th><a href="register.aspx">register</a></th>
+                            <th><a href="Gallery.aspx">Gallery</a></th>
+                            <th><a href="Reccomendation.aspx">recommendation</a></th>
+                            <th><a href="Profile.aspx">profile</a></th>
+                            <th><a href="Quiz.aspx">Quiz</a></th>
+                            <th id="hide1" runat="server"><a href="Update.aspx">update</a></th>
+                            <th><a href="Admin.aspx">Admin</a></th>
+                </tr>
+
+            </table>
+                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                <p>made by maya kalderon</p>
+             </center>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
